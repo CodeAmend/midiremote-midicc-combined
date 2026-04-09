@@ -1,0 +1,15 @@
+{
+  "name": "launch_control_xl",
+  "version": "1.0.0",
+  "main": "Novation_Launch_Control_XL.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^25.5.2"
+  }
+}

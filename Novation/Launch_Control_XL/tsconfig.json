@@ -8,6 +8,7 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
     "sourceMap": false,
     "target": "es5",
     "checkJs": true,
@@ -15,3 +16,4 @@
   },
   "include": ["./*.ts"]
 }
+package-lock.json
