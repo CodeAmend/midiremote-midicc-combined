@@ -2183,27 +2183,27 @@ setTransportEditTrackButtons(PageSends);
 
 var PageInstrument = new LCXLPageTrack("Instrument", deviceDriver, lcxlEncoders);
 
-// Top two rows of knobs (except for the last two) are assignable in the GUI.
-for( var i = 0; i < 5; i++) {
-    PageInstrument.setKnobTop( new Variable(Orange), i);
-    PageInstrument.setKnobMiddle( new Variable(Orange), i);
+// // Top two rows of knobs (except for the last two) are assignable in the GUI.
+// for( var i = 0; i < 5; i++) {
+//     PageInstrument.setKnobTop( new Variable(Orange), i);
+//     PageInstrument.setKnobMiddle( new Variable(Orange), i);
 
-}
+// }
 
 
-PageInstrument.setKnobTop(zoomHorizontallyKnob(Lime, deviceDriver.mSurface, PageInstrument.page),5)
-PageInstrument.setKnobMiddle(zoomVerticllyKnob(Lime, deviceDriver.mSurface, PageInstrument.page),5)
+// PageInstrument.setKnobTop(zoomHorizontallyKnob(Lime, deviceDriver.mSurface, PageInstrument.page),5)
+// PageInstrument.setKnobMiddle(zoomVerticllyKnob(Lime, deviceDriver.mSurface, PageInstrument.page),5)
 
-PageInstrument.setKnobTop(zoomKnob(Lime, deviceDriver.mSurface, PageInstrument.page),6)
-PageInstrument.setKnobMiddle(new Switch(Red.high, Red.off).value(PageInstrument.page.mHostAccess.mFocusedQuickControls.mFocusLockedValue ),6)
+// PageInstrument.setKnobTop(zoomKnob(Lime, deviceDriver.mSurface, PageInstrument.page),6)
+// PageInstrument.setKnobMiddle(new Switch(Red.high, Red.off).value(PageInstrument.page.mHostAccess.mFocusedQuickControls.mFocusLockedValue ),6)
 
-// smart control
-PageInstrument.setKnobTop(new VariableScaled(Green).value(PageInstrument.page.mHostAccess.mMouseCursor.mValueUnderMouse ),7)
-PageInstrument.setKnobMiddle(new Switch(Green.off, Green.med).value(PageInstrument.page.mHostAccess.mMouseCursor.mValueLocked ),7)
+// // smart control
+// PageInstrument.setKnobTop(new VariableScaled(Green).value(PageInstrument.page.mHostAccess.mMouseCursor.mValueUnderMouse ),7)
+// PageInstrument.setKnobMiddle(new Switch(Green.off, Green.med).value(PageInstrument.page.mHostAccess.mMouseCursor.mValueLocked ),7)
 
 // QCs
 PageInstrument.lowerKnobRow(focusedQuickControls(Red, PageInstrument.page));
-PageInstrument.faders(trackQuickControlsGlide(PageInstrument.page));
+// PageInstrument.faders(trackQuickControlsGlide(PageInstrument.page));
 
 // Nuge Nuttons
 PageInstrument.topButtonRow(nudgeButtons());

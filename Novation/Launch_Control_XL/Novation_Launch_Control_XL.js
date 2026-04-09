@@ -64,7 +64,7 @@ var __extends = (this && this.__extends) || (function () {
 //-----------------------------------------------------------------------------
 // get the api's entry point - This like will show as an error, but still works
 // import midiremote_api from 'midiremote_api_v1';
-//// <reference path="../apiforts/midiremote_api_v1.d.ts" />
+/// <reference path="../apiforts/midiremote_api_v1.d.ts" />
 // To enable type compleation
 //import midiremote_api = require('midiremote_api_v1');
 // To enable transpiling
@@ -100,31 +100,31 @@ var LaunchControlXL = /** @class */ (function () {
     }
     // Resets all of the the template
     LaunchControlXL.prototype._initReset = function (activeDevice) {
-        this.MIDIOut.sendMidi(activeDevice, LaunchControlXL._LightsReset);
+        this.MIDIOut.sendMidi(activeDevice, _a._LightsReset);
     };
     // Sets the template to user 8
     LaunchControlXL.prototype._initTemplate = function (activeDevice) {
-        this.MIDIOut.sendMidi(activeDevice, LaunchControlXL._TemplateSet);
+        this.MIDIOut.sendMidi(activeDevice, _a._TemplateSet);
     };
     // allow lights to be set to flashing colours
     LaunchControlXL.prototype._initFlash = function (activeDevice) {
-        this.MIDIOut.sendMidi(activeDevice, LaunchControlXL._LightsFlashEnable);
+        this.MIDIOut.sendMidi(activeDevice, _a._LightsFlashEnable);
     };
     // dissallow lights to be set to flashing colours
     LaunchControlXL.prototype._initFlashDissable = function (activeDevice) {
-        this.MIDIOut.sendMidi(activeDevice, LaunchControlXL._LightsFalshOff);
+        this.MIDIOut.sendMidi(activeDevice, _a._LightsFalshOff);
     };
     // Turn all the LEDs to the highest they will go
     LaunchControlXL.prototype.setAllHigh = function (activeDevice) {
-        this.MIDIOut.sendMidi(activeDevice, LaunchControlXL._LightsAllHigh);
+        this.MIDIOut.sendMidi(activeDevice, _a._LightsAllHigh);
     };
     // Turn all the LEDs to  medium
     LaunchControlXL.prototype.setAllMed = function (activeDevice) {
-        this.MIDIOut.sendMidi(activeDevice, LaunchControlXL._LightsAllMedium);
+        this.MIDIOut.sendMidi(activeDevice, _a._LightsAllMedium);
     };
     // Turn all the LEDs to  low
     LaunchControlXL.prototype.setAllLow = function (activeDevice) {
-        this.MIDIOut.sendMidi(activeDevice, LaunchControlXL._LightsAllLow);
+        this.MIDIOut.sendMidi(activeDevice, _a._LightsAllLow);
     };
     // TODO: Not sure if the buggering can chang ethe ON colour of a button.
     // Seems like it should work, but the buttons are allways full on (so yellow)
@@ -136,37 +136,37 @@ var LaunchControlXL = /** @class */ (function () {
     // it has two buffers and writes and displays them interchangably.
     // this method enters that mode
     LaunchControlXL.prototype.bufferingStart = function (activeDevice) {
-        this.MIDIOut.sendMidi(activeDevice, LaunchControlXL._LightsBufferStart);
+        this.MIDIOut.sendMidi(activeDevice, _a._LightsBufferStart);
     };
     // The Launch Control LX can buffer LED changes and swap them all at once.
     // it has two buffers and writes and displays them interchangably.
     // this method flips which buffer is being displayed and written to.
     LaunchControlXL.prototype.bufferingFlip = function (activeDevice) {
-        this.MIDIOut.sendMidi(activeDevice, LaunchControlXL._LightsBufferFlip);
+        this.MIDIOut.sendMidi(activeDevice, _a._LightsBufferFlip);
     };
     // The Launch Control LX can buffer LED changes and swap them all at once.
     // it has two buffers and writes and displays them interchangably.
     // this method exits that mode
     LaunchControlXL.prototype.bufferingStop = function (activeDevice) {
-        this.MIDIOut.sendMidi(activeDevice, LaunchControlXL._LightsBufferStop);
+        this.MIDIOut.sendMidi(activeDevice, _a._LightsBufferStop);
     };
     // Set the toggle state of a button to ON IFF it is set to toggle, which it isn't in the default sysex
     LaunchControlXL.prototype.setButtonToggleOn = function (activeDevice, encoderAddress) {
         // sending this message causes Cubase to Hang 
-        this.MIDIOut.sendMidi(activeDevice, LaunchControlXL._EncoderToggleStatePrefix.concat([encoderAddress, LaunchControlXL._ToggleOn, LaunchControlXL._MessageEnd]));
+        this.MIDIOut.sendMidi(activeDevice, _a._EncoderToggleStatePrefix.concat([encoderAddress, _a._ToggleOn, _a._MessageEnd]));
     };
     // Set the toggle state of a button to OFF IFF it is set to toggle, which it isn't in the default sysex
     LaunchControlXL.prototype.setButtonToggleOff = function (activeDevice, encoderAddress) {
         // sending this message causes Cubase to Hang 
-        this.MIDIOut.sendMidi(activeDevice, LaunchControlXL._EncoderToggleStatePrefix.concat([encoderAddress, LaunchControlXL._ToggleOff, LaunchControlXL._MessageEnd]));
+        this.MIDIOut.sendMidi(activeDevice, _a._EncoderToggleStatePrefix.concat([encoderAddress, _a._ToggleOff, _a._MessageEnd]));
     };
     //9nh, Note, Velocity
     // Sets the LED colour of a specific widget (Knob or Button)
     LaunchControlXL.prototype.setEncoderColour = function (activeDevice, encoderAddress, colour) {
-        this.MIDIOut.sendMidi(activeDevice, LaunchControlXL._EncoderSetLEDPrefix.concat([encoderAddress, colour, LaunchControlXL._MessageEnd]));
+        this.MIDIOut.sendMidi(activeDevice, _a._EncoderSetLEDPrefix.concat([encoderAddress, colour, _a._MessageEnd]));
     };
     LaunchControlXL.prototype.setOff = function (activeDevice, encoderAddress) {
-        this.MIDIOut.sendMidi(activeDevice, LaunchControlXL._EncoderSetLEDPrefix.concat([encoderAddress, LaunchControlXL.Colour.Off, LaunchControlXL._MessageEnd]));
+        this.MIDIOut.sendMidi(activeDevice, _a._EncoderSetLEDPrefix.concat([encoderAddress, _a.Colour.Off, _a._MessageEnd]));
     };
     // Sets the LED colour of a specific widget (Knob or Button)
     LaunchControlXL.prototype.setEncoderColourByNote = function (activeDevice, CC, colour) {
@@ -175,46 +175,46 @@ var LaunchControlXL = /** @class */ (function () {
     // Takes a map of all of the widgets and set's the colours accordingly.
     LaunchControlXL.prototype.setColourMap = function (activeDevice, colourMap) {
         for (var i = 0; i < 8; ++i) {
-            this.setEncoderColour(activeDevice, LaunchControlXL.EncoderAddress.KnobsTop[i], colourMap.KnobsTop[i]);
+            this.setEncoderColour(activeDevice, _a.EncoderAddress.KnobsTop[i], colourMap.KnobsTop[i]);
         }
         for (var i = 0; i < 8; ++i) {
-            this.setEncoderColour(activeDevice, LaunchControlXL.EncoderAddress.KnobsMiddle[i], colourMap.KnobsMiddle[i]);
+            this.setEncoderColour(activeDevice, _a.EncoderAddress.KnobsMiddle[i], colourMap.KnobsMiddle[i]);
         }
         for (var i = 0; i < 8; ++i) {
-            this.setEncoderColour(activeDevice, LaunchControlXL.EncoderAddress.KnobsBottom[i], colourMap.KnobsBottom[i]);
+            this.setEncoderColour(activeDevice, _a.EncoderAddress.KnobsBottom[i], colourMap.KnobsBottom[i]);
         }
         for (var i = 0; i < 8; ++i) {
-            this.setEncoderColour(activeDevice, LaunchControlXL.EncoderAddress.ButtonsTop[i], colourMap.ButtonsTop[i]);
+            this.setEncoderColour(activeDevice, _a.EncoderAddress.ButtonsTop[i], colourMap.ButtonsTop[i]);
         }
         for (var i = 0; i < 8; ++i) {
-            this.setEncoderColour(activeDevice, LaunchControlXL.EncoderAddress.ButtonsBottom[i], colourMap.ButtonsBottom[i]);
+            this.setEncoderColour(activeDevice, _a.EncoderAddress.ButtonsBottom[i], colourMap.ButtonsBottom[i]);
         }
         for (var i = 0; i < 4; ++i) {
-            this.setEncoderColour(activeDevice, LaunchControlXL.EncoderAddress.ButtonsSide[i], colourMap.ButtonsSide[i]);
+            this.setEncoderColour(activeDevice, _a.EncoderAddress.ButtonsSide[i], colourMap.ButtonsSide[i]);
         }
-        this.setEncoderColour(activeDevice, LaunchControlXL.EncoderAddress.ButtonUp, colourMap.Up);
-        this.setEncoderColour(activeDevice, LaunchControlXL.EncoderAddress.ButtonDown, colourMap.Down);
-        this.setEncoderColour(activeDevice, LaunchControlXL.EncoderAddress.ButtonLeft, colourMap.Left);
-        this.setEncoderColour(activeDevice, LaunchControlXL.EncoderAddress.ButtonRight, colourMap.Right);
+        this.setEncoderColour(activeDevice, _a.EncoderAddress.ButtonUp, colourMap.Up);
+        this.setEncoderColour(activeDevice, _a.EncoderAddress.ButtonDown, colourMap.Down);
+        this.setEncoderColour(activeDevice, _a.EncoderAddress.ButtonLeft, colourMap.Left);
+        this.setEncoderColour(activeDevice, _a.EncoderAddress.ButtonRight, colourMap.Right);
     };
     // sets the upper LEFT 8 knob colours from an array of 8. Usefull when using Quick Controls in 
     // 2x4 groups rather than 1x8 line.
     LaunchControlXL.prototype.setUpperKnobsLeft = function (activeDevice, colourArray) {
         for (var i = 0; i < 4; ++i) {
-            this.setEncoderColour(activeDevice, LaunchControlXL.EncoderAddress.KnobsTop[i], colourArray.KnobsTop[i]);
+            this.setEncoderColour(activeDevice, _a.EncoderAddress.KnobsTop[i], colourArray.KnobsTop[i]);
         }
         for (var i = 0; i < 4; ++i) {
-            this.setEncoderColour(activeDevice, LaunchControlXL.EncoderAddress.KnobsMiddle[i], colourArray.KnobsMiddle[3 + i]);
+            this.setEncoderColour(activeDevice, _a.EncoderAddress.KnobsMiddle[i], colourArray.KnobsMiddle[3 + i]);
         }
     };
     // sets the upper RIGHT 8 knob colours from an array of 8. Usefull when using Quick Controls in 
     // 2x4 groups rather than 1x8 line.
     LaunchControlXL.prototype.setUpperKnobsRight = function (activeDevice, colourArray) {
         for (var i = 0; i < 4; ++i) {
-            this.setEncoderColour(activeDevice, LaunchControlXL.EncoderAddress.KnobsTop[3 + i], colourArray.KnobsTop[i]);
+            this.setEncoderColour(activeDevice, _a.EncoderAddress.KnobsTop[3 + i], colourArray.KnobsTop[i]);
         }
         for (var i = 0; i < 4; ++i) {
-            this.setEncoderColour(activeDevice, LaunchControlXL.EncoderAddress.KnobsMiddle[3 + i], colourArray.KnobsMiddle[3 + i]);
+            this.setEncoderColour(activeDevice, _a.EncoderAddress.KnobsMiddle[3 + i], colourArray.KnobsMiddle[3 + i]);
         }
     };
     // Initialize the state of the Launch XOntrol XL so that it is on the correct template
@@ -231,7 +231,7 @@ var LaunchControlXL = /** @class */ (function () {
         function pushCC(CC) {
             midiMap.push({ type: 'CC', value: CC });
         }
-        var cc = LaunchControlXL.CC;
+        var cc = _a.CC;
         cc.KnobsTop.forEach(pushCC);
         cc.KnobsMiddle.forEach(pushCC);
         cc.KnobsBottom.forEach(pushCC);
@@ -313,27 +313,27 @@ var LaunchControlXL = /** @class */ (function () {
     };
     // These allow for the setting of LEDs to the secified colour.
     LaunchControlXL.Colour = {
-        Off: 0x0C,
-        RedLow: 0x0D,
-        RedMed: 0x0E,
-        RedHigh: 0x0F,
+        Off: 0x0C, //
+        RedLow: 0x0D, //
+        RedMed: 0x0E, //
+        RedHigh: 0x0F, //
         RedFlash: 0x0B,
-        AmberLow: 0x2E,
-        AmberHigh: 0x3F,
+        AmberLow: 0x2E, //
+        AmberHigh: 0x3F, //
         AmberFlash: 0x3B,
-        OrangeLow: 0x1E,
-        OrangeMed: 0x2F,
-        OrangeHigh: 0x1F,
-        OrangeFlash: 0x1B,
-        GreenLow: 0x1C,
-        GreenMed: 0x2C,
-        GreenHigh: 0x3C,
+        OrangeLow: 0x1E, //
+        OrangeMed: 0x2F, //
+        OrangeHigh: 0x1F, //
+        OrangeFlash: 0x1B, //
+        GreenLow: 0x1C, //
+        GreenMed: 0x2C, //
+        GreenHigh: 0x3C, //
         GreenFlash: 0x38,
-        Lime: 0x3D,
-        LimeFlash: 0x39,
-        YellowLow: 0x1D,
-        YellowMed: 0x2D,
-        YellowHigh: 0x3E,
+        Lime: 0x3D, //
+        LimeFlash: 0x39, //
+        YellowLow: 0x1D, //
+        YellowMed: 0x2D, //
+        YellowHigh: 0x3E, //
         YellowFlash: 0x3A
     };
     // When doing direct system addressing the template can be specified.
@@ -361,7 +361,7 @@ var LaunchControlXL = /** @class */ (function () {
         KnobsTop: [0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07],
         KnobsMiddle: [0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F],
         KnobsBottom: [0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17],
-        Fader: [0x18, 0x19, 0x1A, 0x1B, 0x1C, 0x1D, 0x1E, 0x1F],
+        Fader: [0x18, 0x19, 0x1A, 0x1B, 0x1C, 0x1D, 0x1E, 0x1F], // actualy the top buttons
         ButtonsTop: [0x18, 0x19, 0x1A, 0x1B, 0x1C, 0x1D, 0x1E, 0x1F],
         ButtonsBottom: [0x20, 0x21, 0x22, 0x23, 0x24, 0x25, 0x26, 0x27],
         ButtonsSide: [0x28, 0x29, 0x2A, 0x2B],
@@ -1740,21 +1740,21 @@ setTransportEditTrackButtons(PageSends);
 // Instrument
 // -----------------------------------------------------------------------------
 var PageInstrument = new LCXLPageTrack("Instrument", deviceDriver, lcxlEncoders);
-// Top two rows of knobs (except for the last two) are assignable in the GUI.
-for (var i = 0; i < 5; i++) {
-    PageInstrument.setKnobTop(new Variable(Orange), i);
-    PageInstrument.setKnobMiddle(new Variable(Orange), i);
-}
-PageInstrument.setKnobTop(zoomHorizontallyKnob(Lime, deviceDriver.mSurface, PageInstrument.page), 5);
-PageInstrument.setKnobMiddle(zoomVerticllyKnob(Lime, deviceDriver.mSurface, PageInstrument.page), 5);
-PageInstrument.setKnobTop(zoomKnob(Lime, deviceDriver.mSurface, PageInstrument.page), 6);
-PageInstrument.setKnobMiddle(new Switch(Red.high, Red.off).value(PageInstrument.page.mHostAccess.mFocusedQuickControls.mFocusLockedValue), 6);
-// smart control
-PageInstrument.setKnobTop(new VariableScaled(Green).value(PageInstrument.page.mHostAccess.mMouseCursor.mValueUnderMouse), 7);
-PageInstrument.setKnobMiddle(new Switch(Green.off, Green.med).value(PageInstrument.page.mHostAccess.mMouseCursor.mValueLocked), 7);
+// // Top two rows of knobs (except for the last two) are assignable in the GUI.
+// for( var i = 0; i < 5; i++) {
+//     PageInstrument.setKnobTop( new Variable(Orange), i);
+//     PageInstrument.setKnobMiddle( new Variable(Orange), i);
+// }
+// PageInstrument.setKnobTop(zoomHorizontallyKnob(Lime, deviceDriver.mSurface, PageInstrument.page),5)
+// PageInstrument.setKnobMiddle(zoomVerticllyKnob(Lime, deviceDriver.mSurface, PageInstrument.page),5)
+// PageInstrument.setKnobTop(zoomKnob(Lime, deviceDriver.mSurface, PageInstrument.page),6)
+// PageInstrument.setKnobMiddle(new Switch(Red.high, Red.off).value(PageInstrument.page.mHostAccess.mFocusedQuickControls.mFocusLockedValue ),6)
+// // smart control
+// PageInstrument.setKnobTop(new VariableScaled(Green).value(PageInstrument.page.mHostAccess.mMouseCursor.mValueUnderMouse ),7)
+// PageInstrument.setKnobMiddle(new Switch(Green.off, Green.med).value(PageInstrument.page.mHostAccess.mMouseCursor.mValueLocked ),7)
 // QCs
 PageInstrument.lowerKnobRow(focusedQuickControls(Red, PageInstrument.page));
-PageInstrument.faders(trackQuickControlsGlide(PageInstrument.page));
+// PageInstrument.faders(trackQuickControlsGlide(PageInstrument.page));
 // Nuge Nuttons
 PageInstrument.topButtonRow(nudgeButtons());
 // Transport with instrument instead of edit channel
@@ -1764,31 +1764,31 @@ setTransportEditTrackButtonsInstrument(PageInstrument);
 // WIP Should work, but I can't compleatly test this right now
 // if 4 cue channels are set this controls the send for the selected track
 // with talkback at the top, switch it on, then it's talkback volume.
-// var cueTrackColumn = function (surface, page, index) {
-//     var cueChannel = page.mHostAccess.mControlRoom.getCueChannelByIndex(index);
-//     var cueChannelTalkback = new VariableSwitch(Yellow, new Commander("cue" + index + "Talkback").addTriggerValue(surface, page, cueChannel.mTalkbackEnabledValue), "0", "pickup").value(cueChannel.mTalkbackLevelValue);
-//     var cueSend = page.mHostAccess.mTrackSelection.mMixerChannel.mCueSends.getByIndex(index);
-//     var cueTrackPrepost = new Switch(Lime.high, Orange.high).value(cueSend.mPrePost);
-//     var cueTrackPan = new Variable(Amber).value(cueSend.mPan);
-//     var cueTrackLevel = new Glide().value(cueSend.mLevel);
-//     var cueTrackOn = new Toggle(Lime).value(cueSend.mOn);
-//     return [cueChannelTalkback, cueTrackPrepost, cueTrackPan, cueTrackLevel, cueTrackOn];
-// };
-// // Control one of 4 cue channels.  
-// var cueChannelColumn = function (surface, page, index) {
-//     var cueChannel = page.mHostAccess.mControlRoom.getCueChannelByIndex(index);
-//     var cusChannelBypassInserts = new Switch(Lime.high, Orange.high).value(cueChannel.mBypassInserts);
-//     var cusChannelClickPan = new Variable(Amber).value(cueChannel.mMetronomeClickPanValue);
-//     var cusChanneClickSwitch = new VariableSwitch(Green, new Commander("cue" + index + "Metronome").addTriggerValue(surface, page, cueChannel.mMetronomeClickActiveValue), "0", "pickup").value(cueChannel.mMetronomeClickLevelValue);
-//     var cusChannelLevel = new Glide().value(cueChannel.mLevelValue);
-//     var cusChannelMute = new Toggle(Green).value(cueChannel.mMuteValue);
-//     return [cusChannelBypassInserts, cusChannelClickPan, cusChanneClickSwitch, cusChannelLevel, cusChannelMute];
-// };
-// var PageCue = new LCXLPageTrack("Cue", deviceDriver, lcxlEncoders);
-// for (var i = 0; i < 4; i++) {
-//     PageCue.columnAboveButtomBotton(cueChannelColumn(deviceDriver.mSurface, PageCue.page, i), i);
-// }
-// for (var i = 4; i < 8; i++) {
-//     PageCue.columnAboveButtomBotton(cueTrackColumn(deviceDriver.mSurface, PageCue.page, i - 4), i);
-// }
-// setTransportEditTrackButtons(PageCue);
+var cueTrackColumn = function (surface, page, index) {
+    var cueChannel = page.mHostAccess.mControlRoom.getCueChannelByIndex(index);
+    var cueChannelTalkback = new VariableSwitch(Yellow, new Commander("cue" + index + "Talkback").addTriggerValue(surface, page, cueChannel.mTalkbackEnabledValue), "0", "pickup").value(cueChannel.mTalkbackLevelValue);
+    var cueSend = page.mHostAccess.mTrackSelection.mMixerChannel.mCueSends.getByIndex(index);
+    var cueTrackPrepost = new Switch(Lime.high, Orange.high).value(cueSend.mPrePost);
+    var cueTrackPan = new Variable(Amber).value(cueSend.mPan);
+    var cueTrackLevel = new Glide().value(cueSend.mLevel);
+    var cueTrackOn = new Toggle(Lime).value(cueSend.mOn);
+    return [cueChannelTalkback, cueTrackPrepost, cueTrackPan, cueTrackLevel, cueTrackOn];
+};
+// Control one of 4 cue channels.  
+var cueChannelColumn = function (surface, page, index) {
+    var cueChannel = page.mHostAccess.mControlRoom.getCueChannelByIndex(index);
+    var cusChannelBypassInserts = new Switch(Lime.high, Orange.high).value(cueChannel.mBypassInserts);
+    var cusChannelClickPan = new Variable(Amber).value(cueChannel.mMetronomeClickPanValue);
+    var cusChanneClickSwitch = new VariableSwitch(Green, new Commander("cue" + index + "Metronome").addTriggerValue(surface, page, cueChannel.mMetronomeClickActiveValue), "0", "pickup").value(cueChannel.mMetronomeClickLevelValue);
+    var cusChannelLevel = new Glide().value(cueChannel.mLevelValue);
+    var cusChannelMute = new Toggle(Green).value(cueChannel.mMuteValue);
+    return [cusChannelBypassInserts, cusChannelClickPan, cusChanneClickSwitch, cusChannelLevel, cusChannelMute];
+};
+var PageCue = new LCXLPageTrack("Cue", deviceDriver, lcxlEncoders);
+for (var i = 0; i < 4; i++) {
+    PageCue.columnAboveButtomBotton(cueChannelColumn(deviceDriver.mSurface, PageCue.page, i), i);
+}
+for (var i = 4; i < 8; i++) {
+    PageCue.columnAboveButtomBotton(cueTrackColumn(deviceDriver.mSurface, PageCue.page, i - 4), i);
+}
+setTransportEditTrackButtons(PageCue);
